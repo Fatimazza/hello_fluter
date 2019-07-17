@@ -9,8 +9,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final wordPair = WordPair.random();
-
     return MaterialApp(
       title: 'Word Pair App',
       home: Scaffold(
@@ -18,29 +16,24 @@ class MyApp extends StatelessWidget {
           title: Text('Word Pair App'),
         ),
         body: Center(
-          child: Text(wordPair.asPascalCase), //PascalCaseExample
+          child: RandomWords()
         ),
       ),
     );
   }
 }
 
-class RandomWordsState extends State<RandomWords> { //State Class 
+class RandomWordsState extends State<RandomWords> { //State Class
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return null;
+    final WordPair wordPair = WordPair.random();
+    return Text(wordPair.asPascalCase);
   }
-
 }
 
 class RandomWords extends StatefulWidget { //Stateful Widget
 
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return null;
-  }
-
+  RandomWordsState createState() => RandomWordsState(); // create it's State Class
 }
