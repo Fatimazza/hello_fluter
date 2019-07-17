@@ -11,6 +11,9 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       title: 'List Word Pair App',
+      theme: ThemeData(
+        primaryColor: Colors.green
+      ),
       home: RandomWords(),
     );
   }
