@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:english_words/english_words.dart'; //Import External Package
 
 void main() => runApp(MyApp());
 
@@ -7,14 +8,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final wordPair = WordPair.random();
+
     return MaterialApp(
-      title: 'This is App - Title',
+      title: 'Word Pair App',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('This is Home - App Bar - Title'),
+          title: Text('Word Pair App'),
         ),
-        body: const Center(
-          child: const Text('This is Home - Body'),
+        body: Center(
+          child: Text(wordPair.asPascalCase), //PascalCaseExample
         ),
       ),
     );
