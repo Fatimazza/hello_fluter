@@ -2,21 +2,18 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   // This widget is the root of your application.
+  @override
+  State<StatefulWidget> createState() => new _MyAppState();
+}
 
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'This is App - Title',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('This is Home - App Bar - Title'),
-        ),
-        body: const Center(
-          child: const Text('This is Home - Body'),
-        ),
-      ),
-    );
+    // TODO: implement build
+    return null;
   }
 }
+
+
