@@ -24,3 +24,23 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class RandomWordsState extends State<RandomWords> { //State Class 
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return null;
+  }
+
+}
+
+class RandomWords extends StatefulWidget { //Stateful Widget
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return null;
+  }
+
+}
