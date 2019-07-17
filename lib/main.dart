@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      title: 'Word Pair App',
+      title: 'List Word Pair App',
       home: RandomWords(),
     );
   }
@@ -26,10 +26,19 @@ class RandomWordsState extends State<RandomWords> { //State Class
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Word Pair App'),
+        title: Text('List Word Pair App'),
+        actions: <Widget>[
+          // Property Actions have Children here
+          // Children is Array of Widgets, if single called Child
+          IconButton(icon: Icon(Icons.list), onPressed: _pushSaved)
+        ],
       ),
       body: _buildSuggestions(),
     );
+  }
+
+  void _pushSaved() {
+    Navigator.of(context).push(null);
   }
 
   Widget _buildSuggestions() {
