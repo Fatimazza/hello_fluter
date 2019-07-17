@@ -11,9 +11,20 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return null;
+    return new MaterialApp(
+      title: 'Camera Image Picker',
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text('Camera Image Picker'),
+        ),
+        body: new Center(
+          child: new Text('No Image Selected')
+        ),
+        floatingActionButton: new FloatingActionButton(
+          tooltip: 'Pick Image',
+          child: new Icon(Icons.camera),
+        ),
+      ),
+    );
   }
 }
-
-
