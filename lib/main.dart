@@ -17,8 +17,23 @@ class _MyAppState extends State<MyApp> {
         appBar: new AppBar(
           title: const Text('Multiple Image Picker App'),
         ),
-        body: new Center(
-          child: new Text('Select Multiple Images'),
+        body: Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Text('Select Multiple Images'),
+                RaisedButton(
+                    child: Text(
+                      'Click',
+                      style: TextStyle(color: Colors.white
+                      ),
+                    ),
+                    color: Colors.blue,
+                    onPressed: null)
+              ],
+            )
+          ],
         ),
       ),
     );
