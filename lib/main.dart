@@ -32,12 +32,24 @@ class _MyAppState extends State<MyApp> {
                     color: Colors.blue,
                     onPressed: null)
               ],
-            )
+            ),
+            Center(
+              child: Container(
+                padding: EdgeInsets.all(10.0),
+                child: Text('Error',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w900,
+                        fontStyle: FontStyle.italic)),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                    border: Border.all(color: Color(0x0FF000000))),
+              ),
+            ),
+            Expanded(
+              child: Text('Grid of Multiple Images'),)
           ],
         ),
       ),
     );
   }
 }
-
-
