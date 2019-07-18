@@ -17,7 +17,7 @@ class AccessState extends State<ViewImages> {
   int _index = 0;
   Asset _asset;
 
-  AccessState(this._index, this._asset)
+  AccessState(this._index, this._asset);
 
   @override
   void initState() {
@@ -35,6 +35,18 @@ class AccessState extends State<ViewImages> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return null;
+    if (null != this._asset.thumbData) {
+      return Image.memory(
+        this._asset.thumbData.buffer.asUint8List(),
+        fit: BoxFit.cover,
+        gaplessPlayback: true,
+      );
+    }
+    return Text(
+      '${this._index}',
+      style: Theme
+          .of(context)
+          .textTheme
+          .headline,);
   }
 }
