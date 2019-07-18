@@ -16,7 +16,21 @@ class ViewImages extends StatefulWidget {
 class AccessState extends State<ViewImages> {
   int _index = 0;
   Asset _asset;
+
   AccessState(this._index, this._asset)
+
+  @override
+  void initState() {
+    super.initState();
+    _loadImage();
+  }
+
+  void _loadImage() async {
+    await this._asset.requestThumbnail(300, 300, quality: 50);
+    if (this.mounted) {
+      setState(() {});
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
