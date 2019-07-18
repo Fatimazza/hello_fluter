@@ -10,10 +10,14 @@ class ViewImages extends StatefulWidget {
 
   @override
   State<StatefulWidget>
-  createState() => AccessState();
+  createState() => AccessState(this._index, this._asset);
 }
 
 class AccessState extends State<ViewImages> {
+  int _index = 0;
+  Asset _asset;
+  AccessState(this._index, this._asset)
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
