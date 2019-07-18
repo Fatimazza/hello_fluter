@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,6 +12,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  File _image;
+
+  Future getImage() async {
+    var image = await ImagePicker.pickImage(source: ImageSource.camera);
+    setState(() {
+      _image = image;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -18,9 +30,12 @@ class _MyAppState extends State<MyApp> {
           title: new Text('Camera Image Picker'),
         ),
         body: new Center(
-          child: new Text('No Image Selected')
+          child: _image == null
+              ? new Text('No Image Selected')
+              : new Image.file(_image),
         ),
         floatingActionButton: new FloatingActionButton(
+          onPressed: getImage,
           tooltip: 'Pick Image',
           child: new Icon(Icons.camera),
         ),
