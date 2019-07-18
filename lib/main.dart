@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:multi_image_picker/multi_image_picker.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,6 +11,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  List<Asset> images = List<Asset>();
+  String _error = 'No Error Dectected';
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -30,7 +40,7 @@ class _MyAppState extends State<MyApp> {
                       ),
                     ),
                     color: Colors.blue,
-                    onPressed: null)
+                    onPressed: loadAssets)
               ],
             ),
             Center(
@@ -51,5 +61,30 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
     );
+  }
+
+  Future<void> loadAssets() async {
+    setState(() {
+      images = List<Asset>();
+    });
+
+    List<Asset> resultList = List<Asset>();
+    String error = 'No Error Dectected';
+
+    try {
+      resultList = await MultiImagePicker
+          .pickImages(
+          maxImages: 10,
+          enableCamera: true,
+          options: CupertinoOptions(takePhotoIcon: "chat")
+      );
+    } on PlatformException catch (e) {
+      if (!mounted)
+        return;
+      setState(() {
+        images = resultList;
+        _error = error;
+      });
+    }
   }
 }
