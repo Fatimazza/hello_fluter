@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(PageRoutingApp());
+void main() => runApp(
+  MaterialApp(
+    debugShowCheckedModeBanner: false,
+    title: 'Routing Navigation',
+    initialRoute: '/',
+    routes: {
+      '/' : (context) => PageRoutingApp(),
+      FirstPage.routeName : (context) => FirstPage(),
+      SecondPage.routeName : (context) => SecondPage(),
+    },
+  )
+);
 
 class PageRoutingApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -18,9 +29,17 @@ class PageRoutingApp extends StatelessWidget {
             children: <Widget>[
               RaisedButton(
                 child: Text('Page A'),
+                onPressed: () {
+                  //move to another page, can be back
+                  Navigator.pushNamed(context, FirstPage.routeName);
+                },
               ),
               RaisedButton(
                 child: Text ('Page B'),
+                onPressed: () {
+                  //move to another page, can NOT be back
+                  Navigator.pushReplacementNamed(context, SecondPage.routeName);
+                },
               ),
             ],
           ),
@@ -32,12 +51,14 @@ class PageRoutingApp extends StatelessWidget {
 
 class FirstPage extends StatelessWidget {
 
+  static const String routeName = '/firstPage';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('First Page'),
+          title: Text('A First Page'),
         ),
         body: Center(
           child: RaisedButton(child: Text('Back'), onPressed: () {
@@ -51,17 +72,17 @@ class FirstPage extends StatelessWidget {
 
 class SecondPage extends StatelessWidget {
 
+  static const String routeName = '/secondPage';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Second Page'),
+          title: Text('B Second Page'),
         ),
         body: Center(
-          child: RaisedButton(child: Text('Back'), onPressed: () {
-            Navigator.pop(context);
-          }),
+          child: Text('B Second Page'),
         ),
       ),
     );
