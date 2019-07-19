@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(PageRoutingApp());
 
-class MyApp extends StatelessWidget {
+class PageRoutingApp extends StatelessWidget {
   // This widget is the root of your application.
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'This is App - Title',
+      title: 'Flutter Routing App',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('This is Home - App Bar - Title'),
+          title: const Text('Flutter Routing App'),
         ),
-        body: const Center(
-          child: const Text('This is Home - Body'),
+        body: Center(
+          child: ListView(
+            children: <Widget>[
+              RaisedButton(
+                child: Text('Page A'),
+              ),
+              RaisedButton(
+                child: Text ('Page B'),
+              ),
+            ],
+          ),
         ),
       ),
     );
